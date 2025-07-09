@@ -37,7 +37,7 @@ A modern, responsive teacher management interface built with Next.js, TypeScript
 
 1. **Clone the repository**
    ```bash
-   git clone [your-repo-url]
+   git clone https://github.com/googlebaba01/PearlThoughts_FE.git
    cd pearlthoughts_fe
    ```
 
@@ -189,8 +189,6 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-[Your Name] - [Your Email]
+Gajendra Kumar Nagar
 
 ---
-
-**Note:** This is a frontend assessment project demonstrating modern web development practices. For production use, additional security, performance, and scalability considerations would be implemented.

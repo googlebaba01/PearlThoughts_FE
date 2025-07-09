@@ -6,29 +6,28 @@ import PhoneCard from "@/components/teacher/PhoneCard";
 import AddressCard from "@/components/teacher/AddressCard";
 import QualificationsTable, { Qualification } from "@/components/teacher/QualificationsTable";
 import GroupQualificationsTable from "@/components/teacher/GroupQualificationsTable";
-import AvailabilityCalendar from "@/components/teacher/AvailabilityCalendar";
 import TabbedSection from "@/components/teacher/TabbedSection";
 import { useState } from "react";
 
 export default function Home() {
-  const [emails, setEmails] = useState([
+  const [emails] = useState([
     { value: "alyniaallan@work.com", type: "Work" },
     { value: "alyniaallan@personal.com", type: "Personal" },
   ]);
-  const [phones, setPhones] = useState([
+  const [phones] = useState([
     { value: "(416) 648-9057", type: "Mobile" },
   ]);
-  const [addresses, setAddresses] = useState([
+  const [addresses] = useState([
     { value: "56 Oxford St, North York, Ontario, Canada", type: "Home" },
   ]);
-  const [privateQualifications, setPrivateQualifications] = useState<Qualification[]>([
+  const [privateQualifications] = useState<Qualification[]>([
     { name: "Vocal Contemporary", rate: "$30.00" },
     { name: "Vocal Core", rate: "$28.00" },
     { name: "Vocal Hybrid", rate: "$32.00" },
     { name: "Vocal Plus", rate: "$28.00" },
     { name: "Instrument", rate: "$28.00" },
   ]);
-  const [groupQualifications, setGroupQualifications] = useState<Qualification[]>([
+  const [groupQualifications] = useState<Qualification[]>([
     { name: "Vocal Contemporary", rate: "$30.00" },
     { name: "Vocal Core", rate: "$28.00" },
     { name: "Vocal Hybrid", rate: "$32.00" },
