@@ -4,7 +4,7 @@ A modern, responsive teacher management interface built with Next.js, TypeScript
 
 ## 🚀 Live Demo
 
-[Add your Vercel/Netlify deployment URL here]
+https://pearl-thoughts-fe-dq3s.vercel.app/
 
 ## ✨ Features
 
