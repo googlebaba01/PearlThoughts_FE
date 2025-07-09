@@ -1,103 +1,120 @@
-import Image from "next/image";
+"use client";
+import MainContainer from "@/components/layout/MainContainer";
+import TeacherDetailsCard from "@/components/teacher/TeacherDetailsCard";
+import EmailCard from "@/components/teacher/EmailCard";
+import PhoneCard from "@/components/teacher/PhoneCard";
+import AddressCard from "@/components/teacher/AddressCard";
+import QualificationsTable, { Qualification } from "@/components/teacher/QualificationsTable";
+import GroupQualificationsTable from "@/components/teacher/GroupQualificationsTable";
+import AvailabilityCalendar from "@/components/teacher/AvailabilityCalendar";
+import TabbedSection from "@/components/teacher/TabbedSection";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [emails, setEmails] = useState([
+    { value: "alyniaallan@work.com", type: "Work" },
+    { value: "alyniaallan@personal.com", type: "Personal" },
+  ]);
+  const [phones, setPhones] = useState([
+    { value: "(416) 648-9057", type: "Mobile" },
+  ]);
+  const [addresses, setAddresses] = useState([
+    { value: "56 Oxford St, North York, Ontario, Canada", type: "Home" },
+  ]);
+  const [privateQualifications, setPrivateQualifications] = useState<Qualification[]>([
+    { name: "Vocal Contemporary", rate: "$30.00" },
+    { name: "Vocal Core", rate: "$28.00" },
+    { name: "Vocal Hybrid", rate: "$32.00" },
+    { name: "Vocal Plus", rate: "$28.00" },
+    { name: "Instrument", rate: "$28.00" },
+  ]);
+  const [groupQualifications, setGroupQualifications] = useState<Qualification[]>([
+    { name: "Vocal Contemporary", rate: "$30.00" },
+    { name: "Vocal Core", rate: "$28.00" },
+    { name: "Vocal Hybrid", rate: "$32.00" },
+    { name: "Vocal Plus", rate: "$28.00" },
+    { name: "Instrument", rate: "$28.00" },
+  ]);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // Handlers for emails
+  const handleAddEmail = () => alert("Add email clicked");
+  const handleEditEmail = (idx: number) => alert(`Edit email #${idx}`);
+  const handleDeleteEmail = (idx: number) => alert(`Delete email #${idx}`);
+
+  // Handlers for phones
+  const handleAddPhone = () => alert("Add phone clicked");
+  const handleEditPhone = (idx: number) => alert(`Edit phone #${idx}`);
+  const handleDeletePhone = (idx: number) => alert(`Delete phone #${idx}`);
+
+  // Handlers for addresses
+  const handleAddAddress = () => alert("Add address clicked");
+  const handleEditAddress = (idx: number) => alert(`Edit address #${idx}`);
+  const handleDeleteAddress = (idx: number) => alert(`Delete address #${idx}`);
+
+  // Handlers for private qualifications
+  const handleAddPrivateQualification = () => alert("Add private qualification clicked");
+  const handleEditPrivateQualification = (idx: number) => alert(`Edit private qualification #${idx}`);
+  const handleDeletePrivateQualification = (idx: number) => alert(`Delete private qualification #${idx}`);
+
+  // Handlers for group qualifications
+  const handleAddGroupQualification = () => alert("Add group qualification clicked");
+  const handleEditGroupQualification = (idx: number) => alert(`Edit group qualification #${idx}`);
+  const handleDeleteGroupQualification = (idx: number) => alert(`Delete group qualification #${idx}`);
+
+  return (
+    <MainContainer>
+      {/* Row 1: Details and Email */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <TeacherDetailsCard
+          name="Alynia Allan"
+          role="Teacher"
+          birthDate="1985-04-12"
+          onEdit={() => alert("Edit details clicked")}
+        />
+        <EmailCard
+          emails={emails}
+          onAdd={handleAddEmail}
+          onEdit={handleEditEmail}
+          onDelete={handleDeleteEmail}
+        />
+      </div>
+      {/* Row 2: Phones and Address */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <PhoneCard
+          phones={phones}
+          onAdd={handleAddPhone}
+          onEdit={handleEditPhone}
+          onDelete={handleDeletePhone}
+        />
+        <AddressCard
+          addresses={addresses}
+          onAdd={handleAddAddress}
+          onEdit={handleEditAddress}
+          onDelete={handleDeleteAddress}
+        />
+      </div>
+      {/* Row 3: Private and Group Qualifications side by side */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 w-full max-w-4xl mx-auto">
+        <div className="overflow-y-auto overflow-x-hidden max-h-80 min-w-[250px] w-full bg-white rounded-xl shadow">
+          <QualificationsTable
+            qualifications={privateQualifications}
+            onAdd={handleAddPrivateQualification}
+            onEdit={handleEditPrivateQualification}
+            onDelete={handleDeletePrivateQualification}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="overflow-y-auto overflow-x-hidden max-h-80 min-w-[250px] w-full bg-white rounded-xl shadow">
+          <GroupQualificationsTable
+            qualifications={groupQualifications}
+            onAdd={handleAddGroupQualification}
+            onEdit={handleEditGroupQualification}
+            onDelete={handleDeleteGroupQualification}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </div>
+      {/* Row 4: Tabbed section */}
+      <TabbedSection />
+      {/* Removed calendar below tabbed section */}
+    </MainContainer>
   );
 }
