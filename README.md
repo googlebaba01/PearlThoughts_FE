@@ -6,6 +6,8 @@ A modern, responsive teacher management interface built with Next.js, TypeScript
 
 https://pearl-thoughts-fe-dq3s.vercel.app/
 
+[![Loom](https://img.shields.io/badge/Loom-Demo-orange?logo=loom)](https://www.loom.com/share/9c03ee0cb9d74e599513e13312d755e9)
+
 ## ✨ Features
 
 ### Core Functionality
